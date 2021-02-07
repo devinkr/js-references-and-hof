@@ -1,1 +1,257 @@
-# js-references-and-hof
+# JS Higher-Order Functions
+
+## Learning Objectives
+
+-   Define higher-order functions
+-   Convert function declarations to arrow functions
+
+### Review JavaScript Collections
+
+Numbers, Strings, and Booleans are our basic building blocks of data but on
+their own, they don't express much. We use collections, most commonly Objects
+and Arrays, to build up data to describe more complex entities.
+
+**Arrays** hold their elements in sequence and are generally used to store
+collections of related things.
+
+**Objects** hold their elements in key-value pairs and are generally used either
+to store & look up values (like word definitions in a dictionary), or to
+describe some thing or entity with various attributes.
+
+### Review JavaScript Functions
+
+What is a function?
+
+-   Defined block of code that can be called by later code
+-   Functions are defined with zero or more **parameters**
+    -   **Parameters** are the variables for the function inputs upon definition
+    -   **Arguments** are the values passed in to the function when it is called
+
+<details>
+  <summary> What is a method? </summary>
+  A method is a function that is defined on an object or class. Methods begin with a <code>.</code>, since they are object-properties. For example, <code>.push()</code> and <code>.reverse()</code> are methods, specifically <code>Array</code> methods.
+</details>
+
+### Function Syntax
+
+Remember that functions can be written in several different ways. Learn one way first, but don't let the other ways trip you up! 
+
+#### Function Declaration
+
+```js
+function sum(a, b) {
+	// function "sum" defined with parameters a and b
+	return a + b;
+}
+```
+
+#### Function Expression
+
+```js
+// ES5 Style
+var sum = function(a, b) {
+	return a + b;
+};
+
+// ES6 Style, with Arrow Functions
+const sum = (a, b) => a + b;
+```
+
+#### Function Invocation (calling a function)
+
+```js
+sum(3, 4); // function "sum" called with arguments a and b
+// => 7
+```
+
+Functions always return a value, either...
+
+1. whatever follows a function's **return** statement
+2. or if there is no return statement, the function returns the value
+   `undefined`.
+
+```js
+// in a repl, like the chrome console
+console.log('hello!');
+// 'hello!'
+// => undefined
+//// console.log() returns `undefined`, which appears below the console-logged message because the console.log() method is not given a RETURN VALUE
+```
+
+#### How to Convert to Arrow Syntax
+
+We can convert an existing JavaScript function to use the arrow syntax with the
+ following steps.
+
+1. Remove the `function` keyword
+2. Add a fat arrow (`=>`) between the function parameters  `()` and the opening
+    brace `{`
+
+```js
+// Without arrow syntax
+const helloWorld = function () {
+  console.log('Hello World!')
+}
+
+// Using arrow syntax
+const helloWorld = () => {
+  console.log('Hello World!')
+}
+```
+
+##### Single Expression Implicit Return
+
+Arrow functions bodies that are a single expression have an added benefit, an
+implicit return.  This means that arrow function bodies without `{}` return the
+value of the expression without needing to use `return`.
+
+```js
+// Without arrow syntax
+const add = function (x, y) {
+  return x + y
+}
+
+// Using arrow syntax with an explicit return
+const add = (x, y) => {
+  return x + y
+}
+
+// Using arrow syntax with an implicit return
+const add = (x, y) => x + y
+```
+
+### Arrow Function Caveats
+
+Arrow Functions have a few caveats.
+
+Arrow functions:
+
+- **cannot** be used as a Constructor (`new` does not bind `this`, no
+  `prototype` property).
+<details>
+	<summary>Example</summary>
+	<code>
+const Message = (text) => {
+  this.text = text;
+};
+// Throws "TypeError: Message is not a constructor"
+const helloMessage = new Message('Hello World!');
+	</code>
+</details>
+
+- always have a lexically bound `this` (we'll learn more about that later in the React unit, but check out this [article](https://www.freecodecamp.org/news/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881/#:~:text=While%20in%20ES5%20'this'%20referred,method%20or%20the%20object%20itself.) in the meantime).
+- cannot use `arguments` key word ([learn more about `arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments))
+
+
+### You Try: Converting To Arrow Syntax
+
+Now it's your turn. Convert the function below to use arrow syntax.
+
+```javascript
+// Starting function
+const isEven = function (num) {
+  return num % 2 === 0;
+}
+
+console.log('Is 1 even?', isEven(1));
+console.log('Is 2 even?', isEven(2));
+
+// Rewrite the isEven function using arrow syntax in the space below.
+
+//Starting function
+function add (num1, num2) {
+  return num1 + num2;
+}
+
+console.log("What is 3 + 4?", add(3, 4));
+console.log("What is 7 + 5?", add(7, 5)); 
+
+// Rewrite the add function using arrow syntax in the space below. Try to write an implicit return! :) 
+
+```
+
+
+### Functions as Values
+
+One of the things that makes JavaScript so powerful is that we can reference
+functions and treat them like values stored in a variable.
+
+The impact of this is we can:
+
+-   add functions to arrays and objects, just like any other value
+-   pass functions as arguments to another function
+-   return a function from a function
+
+> 1. Create an array and add a function to it in the first index. How do you
+>    invoke it?
+
+<details>
+<summary>Example</summary>
+<code>
+let arr = [
+  1,
+  function() {
+    return 'Hello World';
+  },
+  2,
+  3
+];
+
+console.log(arr[1]());
+</code>
+
+</details>
+
+> 2. Create a function that takes a function as an argument. How do you invoke
+>    it?
+
+<details>
+<summary>Example</summary>
+<code> function whatShouldISay(func) {
+  return func();
+}
+
+function sayHello() {
+return 'Hello!!!!';
+}
+
+console.log(whatShouldISay(sayHello));
+</code>
+
+</details>
+
+> 3. Create a function that returns another function. How do you invoke them?
+
+<details>
+<summary>Example</summary>
+<code>
+function helloWorld() {
+  return 'Hello World';
+}
+
+function sayHello() {
+return helloWorld();
+}
+
+console.log(sayHello());
+</code>
+
+</details>
+
+<br>
+
+Taking functions as arguments and returning functions is a little advanced, so we're just going to touch on it today. But the significance is: a function that takes a function as an argument is called a _higher-order function._ The function that it takes is called a _callback function_.
+
+## Higher-Order Functions
+
+![What if I told you](morpheus.png)
+
+Functions that take other functions as arguments or return them as output are
+called **higher-order functions**. The array methods that we're going to learn
+today all fit this definition: they are functions (methods of the Array object)
+that take a function as an argument and use it to transform an array of data.
+
+> The function taken as an argument of the higher-order function is called a CALLBACK FUNCTION.
+
+The purpose is to provide a level of abstraction and simplify array iteration
+(going through each element in an array and performing some operation).

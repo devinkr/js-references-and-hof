@@ -10,25 +10,6 @@
 -   Define higher-order functions
 -   Practice working with functions and reference types
 
-### Review Reference Types
-
-Numbers, Strings, and Booleans are among our primitive data types in JavaScript but on
-their own, they don't express much. We use reference types, most commonly Objects
-and Arrays, to build up data to describe more complex entities.
-
-**Arrays** hold their elements in sequence and are generally used to store
-collections of related things.
-
-**Objects** hold their elements in key-value pairs and are generally used either
-to store & look up values (like word definitions in a dictionary), or to
-describe some thing or entity with various attributes.
-
-Primitive data types have their own built-in object wrappers with [properties and methods](https://javascript.info/primitives-methods) that we can access. What are some you've seen so far? 
-
-Objects and arrays have their own properties and methods as well. What are some that you've seen and worked with so far? 
-
-We'll be learning about some of the more advanced array methods that let us iterate over collections of data and perform complex operations. In order to do that, first we'll review functions and learn about higher-order functions. 
-
 ### Review JavaScript Functions
 
 What is a function?
@@ -292,11 +273,25 @@ myHigherOrderFunction(sayHello) //prints "Hello world 🪐" to the console
 
 ```
 
+Notice that when we pass the `sayHello` function to the higher-order function, we are just referencing it, not invoking it. 
+
+```js
+// don't do this!! 😱
+myHigherOrderFunction(sayHello())
+
+//do this 😌
+myHigherOrderFunction(sayHello)
+```
+
+The higher-order function does the invoking itself -- we just need to tell it the name of the function to run. 
+
 ### Passing Anonymous Functions
 
-Callback functions can also be defined anonymously from WITHIN the higher-order function when it's called. 
+Callback functions can also be defined **anonymously** from WITHIN the higher-order function when it's called. 
 
-Revisiting the higher-order function from the previous example, let's say we wanted the HOF to return "Hello galaxy" instead of "Hello world". We could write an anonymous (unnamed) function inside of `myHigherOrderFunction` when we invoke it:
+Revisiting the higher-order function from the previous example, let's say we wanted the HOF to return "Hello galaxy" instead of "Hello world". We don't want to bother with writing an externally-defined named function because we won't need this functionality again elsewhere in our code. 
+
+We could write an anonymous (unnamed) function inside of `myHigherOrderFunction` when we invoke it:
 
 ```js
 myHigherOrderFunction(function(){
@@ -310,6 +305,8 @@ This looks even cleaner with ES6 arrow function syntax:
 myHigherOrderFunction(() => console.log("Hello galaxy ✨"))
 ```
 
+Notice again that we are not invoking the callback -- we are just referencing it for the higher-order function to run!
+
 ### You Try: HOF Exercises
 
-Work on the HOF and Reference Type Exercises linked [here](). 
+Work on the HOF exercises linked [here](). 

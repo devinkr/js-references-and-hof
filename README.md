@@ -241,10 +241,9 @@ that take a function as an argument and use it to transform an array of data.
 ![Higher order functions and callbacks](https://media.git.generalassemb.ly/user/21811/files/c79e8e00-6996-11eb-98dd-3768c8c02827)
 
 
-The purpose is to provide a level of abstraction and simplify array iteration
-(e.g., going through each element in an array and performing some operation).
+The purpose is to provide a level of abstraction (e.g., going through each element in an array and performing some operation for each element).
 
-In the next part of class, we'll learn about array methods that take OTHER FUNCTIONS as arguments! 
+In the next part of class, we'll learn about array methods that take OTHER FUNCTIONS, i.e., callback functions, as arguments! 
 
 ## Two Ways of Passing Functions as Arguments
 

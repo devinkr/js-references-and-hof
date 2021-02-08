@@ -1,14 +1,18 @@
+
+
 # JS Higher-Order Functions
 
 ## Learning Objectives
 
--   Define higher-order functions
+-   Review reference types in JavaScript
 -   Convert function declarations to arrow functions
+-   Define higher-order functions
+-   Practice working with functions and reference types
 
-### Review JavaScript Collections
+### Review Reference Types
 
-Numbers, Strings, and Booleans are our basic building blocks of data but on
-their own, they don't express much. We use collections, most commonly Objects
+Numbers, Strings, and Booleans are among our primitive data types in JavaScript but on
+their own, they don't express much. We use reference types, most commonly Objects
 and Arrays, to build up data to describe more complex entities.
 
 **Arrays** hold their elements in sequence and are generally used to store
@@ -18,11 +22,17 @@ collections of related things.
 to store & look up values (like word definitions in a dictionary), or to
 describe some thing or entity with various attributes.
 
+Primitive data types have their own built-in object wrappers with [properties and methods](https://javascript.info/primitives-methods) that we can access. What are some you've seen so far? 
+
+Objects and arrays have their own properties and methods as well. What are some that you've seen and worked with so far? 
+
+We'll be learning about some of the more advanced array methods that let us iterate over collections of data and perform complex operations. In order to do that, first we'll review functions and learn about higher-order functions. 
+
 ### Review JavaScript Functions
 
 What is a function?
 
--   Defined block of code that can be called by later code
+-   Defined block of code that can be called by other code
 -   Functions are defined with zero or more **parameters**
     -   **Parameters** are the variables for the function inputs upon definition
     -   **Arguments** are the values passed in to the function when it is called
@@ -34,7 +44,7 @@ What is a function?
 
 ### Function Syntax
 
-Remember that functions can be written in several different ways. Learn one way first, but don't let the other ways trip you up! 
+Remember that functions can be written in several different ways. Get comfortable writing one way first, but don't let the other ways trip you up! 
 
 #### Function Declaration
 
@@ -43,6 +53,7 @@ function sum(a, b) {
 	// function "sum" defined with parameters a and b
 	return a + b;
 }
+
 ```
 
 #### Function Expression
@@ -55,6 +66,7 @@ var sum = function(a, b) {
 
 // ES6 Style, with Arrow Functions
 const sum = (a, b) => a + b;
+
 ```
 
 #### Function Invocation (calling a function)
@@ -127,23 +139,12 @@ Arrow Functions have a few caveats.
 Arrow functions:
 
 - **cannot** be used as a Constructor (`new` does not bind `this`, no
-  `prototype` property).
-<details>
-	<summary>Example</summary>
-	<code>
-const Message = (text) => {
-  this.text = text;
-};
-// Throws "TypeError: Message is not a constructor"
-const helloMessage = new Message('Hello World!');
-	</code>
-</details>
-
-- always have a lexically bound `this` (we'll learn more about that later in the React unit, but check out this [article](https://www.freecodecamp.org/news/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881/#:~:text=While%20in%20ES5%20'this'%20referred,method%20or%20the%20object%20itself.) in the meantime).
+  `prototype` property). This might not mean a lot now, but when we learn about Object-Oriented Programming, this will be handy to remember!
+- always have a lexically bound `this` (check out this [article](https://www.freecodecamp.org/news/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881/#:~:text=While%20in%20ES5%20'this'%20referred,method%20or%20the%20object%20itself.)).
 - cannot use `arguments` key word ([learn more about `arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments))
 
 
-### You Try: Converting To Arrow Syntax
+### You Try Exercise: Converting To Arrow Syntax
 
 Now it's your turn. Convert the function below to use arrow syntax.
 
@@ -181,6 +182,8 @@ The impact of this is we can:
 -   add functions to arrays and objects, just like any other value
 -   pass functions as arguments to another function
 -   return a function from a function
+
+**We'll try these in breakout rooms first, then come back and discuss! Try not to peek at the solutions! **
 
 > 1. Create an array and add a function to it in the first index. How do you
 >    invoke it?
@@ -255,3 +258,55 @@ that take a function as an argument and use it to transform an array of data.
 
 The purpose is to provide a level of abstraction and simplify array iteration
 (going through each element in an array and performing some operation).
+
+In the next part of class, we'll learn about array methods that take OTHER FUNCTIONS as arguments! 
+
+## Two Ways of Passing Functions as Arguments
+
+### Passing Named Functions
+
+Perhaps we will often need to print "Hello world" to the console. We can modularize that code into a function called sayHello: 
+
+
+```js
+function sayHello(){
+	console.log("Hello world 🪐")
+}
+```
+
+A higher-order function that takes other functions and returns them can accept the named function as a parameter, A.K.A, a callback function:
+
+```js
+// a higher-order function that takes another function as a parameter
+function myHigherOrderFunction(callback){
+	return callback()
+}
+
+
+// when passed the named sayHello function as an argument, it returns the callback function
+myHigherOrderFunction(sayHello) //prints "Hello world 🪐" to the console
+
+```
+
+
+### Passing Anonymous Functions
+
+Callback functions can also be defined anonymously from WITHIN the higher-order function when it's called. 
+
+Revisiting the higher-order function from the previous example, let's say we wanted the HOF to return "Hello galaxy" instead of "Hello world". We could write an anonymous (unnamed) function inside of `myHigherOrderFunction` when we invoke it:
+
+```js
+myHigherOrderFunction(function(){
+	console.log("Hello galaxy ✨")
+})
+```
+
+This looks even cleaner with ES6 arrow function syntax:
+
+```js
+myHigherOrderFunction(() => console.log("Hello galaxy ✨"))
+```
+
+### You Try: HOF Exercises
+
+Work on the HOF and Reference Type Exercises linked [here](). 

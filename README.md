@@ -5,7 +5,7 @@
 
 ## Learning Objectives
 
--   Review reference types in JavaScript
+-   Review functions in JavaScript
 -   Convert function declarations to arrow functions
 -   Define higher-order functions
 -   Practice working with functions and reference types

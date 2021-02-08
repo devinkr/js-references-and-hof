@@ -1,3 +1,4 @@
+[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
 
 # JS Higher-Order Functions
@@ -247,7 +248,7 @@ Taking functions as arguments and returning functions is a little advanced, so w
 
 ## Higher-Order Functions
 
-![What if I told you](morpheus.png)
+![morpheus](https://media.git.generalassemb.ly/user/21811/files/0896a280-6997-11eb-8a87-4d41c3783550)
 
 Functions that take other functions as arguments or return them as output are
 called **higher-order functions**. The array methods that we're going to learn
@@ -256,8 +257,11 @@ that take a function as an argument and use it to transform an array of data.
 
 > The function taken as an argument of the higher-order function is called a CALLBACK FUNCTION.
 
+![Higher order functions and callbacks](https://media.git.generalassemb.ly/user/21811/files/c79e8e00-6996-11eb-98dd-3768c8c02827)
+
+
 The purpose is to provide a level of abstraction and simplify array iteration
-(going through each element in an array and performing some operation).
+(e.g., going through each element in an array and performing some operation).
 
 In the next part of class, we'll learn about array methods that take OTHER FUNCTIONS as arguments! 
 
@@ -287,7 +291,6 @@ function myHigherOrderFunction(callback){
 myHigherOrderFunction(sayHello) //prints "Hello world 🪐" to the console
 
 ```
-
 
 ### Passing Anonymous Functions
 

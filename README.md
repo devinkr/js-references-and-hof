@@ -78,7 +78,7 @@ We can convert an existing JavaScript function to use the arrow syntax with the
  following steps.
 
 1. Remove the `function` keyword
-2. Add a fat arrow (`=>`) between the function parameters  `()` and the opening
+2. Add an arrow (`=>`) between the function parameters  `()` and the opening
     brace `{`
 
 ```js

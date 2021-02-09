@@ -1,23 +1,22 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-
 # JS Higher-Order Functions
 
 ## Learning Objectives
 
--   Review functions in JavaScript
--   Convert function declarations to arrow functions
--   Define higher-order functions
--   Practice working with functions and reference types
+- Review functions in JavaScript
+- Convert function declarations to arrow functions
+- Define higher-order functions
+- Practice working with functions and reference types
 
 ### Review JavaScript Functions
 
 What is a function?
 
--   Defined block of code that can be called by other code
--   Functions are defined with zero or more **parameters**
-    -   **Parameters** are the variables for the function inputs upon definition
-    -   **Arguments** are the values passed in to the function when it is called
+- Defined block of code that can be called by other code
+- Functions are defined with zero or more **parameters**
+  - **Parameters** are the variables for the function inputs upon definition
+  - **Arguments** are the values passed in to the function when it is called
 
 <details>
   <summary> What is a method? </summary>
@@ -26,7 +25,7 @@ What is a function?
 
 ### Function Syntax
 
-Remember that functions can be written in several different ways. Get comfortable writing one way first, but don't let the other ways trip you up! 
+Remember that functions can be written in several different ways. Get comfortable writing one way first, but don't let the other ways trip you up!
 
 #### Function Declaration
 
@@ -35,25 +34,23 @@ function sum(a, b) {
 	// function "sum" defined with parameters a and b
 	return a + b;
 }
-
 ```
 
 #### Function Expression
 
 ```js
 // ES5 Style
-var sum = function(a, b) {
+var sum = function (a, b) {
 	return a + b;
 };
 
 // ES6 Style, with Arrow Functions
 const sum = (a, b) => a + b;
-
 ```
 
 #### Function Invocation (calling a function)
 
-When we invoke a function, we use clappers `()` along with any arguments to execute or run the function's code. 
+When we invoke a function, we use clappers `()` along with any arguments to execute or run the function's code.
 
 ```js
 sum(3, 4); // function "sum" called with arguments a and b
@@ -80,52 +77,52 @@ Sometimes, we just need to reference the name of a function to execute, especial
 
 ```js
 function sayHello() {
-  console.log('hello world!')
+	console.log('hello world!');
 }
 
-btn.addEventListener('click', sayHello)
+btn.addEventListener('click', sayHello);
 ```
 
 #### How to Convert to Arrow Syntax
 
 We can convert an existing JavaScript function to use the arrow syntax with the
- following steps.
+following steps.
 
 1. Remove the `function` keyword
-2. Add an arrow (`=>`) between the function parameters  `()` and the opening
-    brace `{`
+2. Add an arrow (`=>`) between the function parameters `()` and the opening
+   brace `{`
 
 ```js
 // Without arrow syntax
 const helloWorld = function () {
-  console.log('Hello World!')
-}
+	console.log('Hello World!');
+};
 
 // Using arrow syntax
 const helloWorld = () => {
-  console.log('Hello World!')
-}
+	console.log('Hello World!');
+};
 ```
 
 ##### Single Expression Implicit Return
 
 Arrow functions bodies that are a single expression have an added benefit, an
-implicit return.  This means that arrow function bodies without `{}` return the
+implicit return. This means that arrow function bodies without `{}` return the
 value of the expression without needing to use `return`.
 
 ```js
 // Without arrow syntax
 const add = function (x, y) {
-  return x + y
-}
+	return x + y;
+};
 
 // Using arrow syntax with an explicit return
 const add = (x, y) => {
-  return x + y
-}
+	return x + y;
+};
 
 // Using arrow syntax with an implicit return
-const add = (x, y) => x + y
+const add = (x, y) => x + y;
 ```
 
 ### Arrow Function Caveats
@@ -139,16 +136,15 @@ Arrow functions:
 - always have a lexically bound `this` (check out this [article](https://www.freecodecamp.org/news/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881/#:~:text=While%20in%20ES5%20'this'%20referred,method%20or%20the%20object%20itself.) to learn more about what that means).
 - cannot use `arguments` key word ([learn more about `arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments))
 
-
 ### You Try Exercise: Converting To Arrow Syntax
 
-Now it's your turn. Convert the function below to use arrow syntax.
+Now it's your turn. Convert the function below to use arrow syntax. The exercises are linked in [lib/script.js](./lib/script.js).
 
 ```javascript
 // Starting function
 const isEven = function (num) {
-  return num % 2 === 0;
-}
+	return num % 2 === 0;
+};
 
 console.log('Is 1 even?', isEven(1));
 console.log('Is 2 even?', isEven(2));
@@ -156,17 +152,15 @@ console.log('Is 2 even?', isEven(2));
 // Rewrite the isEven function using arrow syntax in the space below.
 
 //Starting function
-function add (num1, num2) {
-  return num1 + num2;
+function add(num1, num2) {
+	return num1 + num2;
 }
 
-console.log("What is 3 + 4?", add(3, 4));
-console.log("What is 7 + 5?", add(7, 5)); 
+console.log('What is 3 + 4?', add(3, 4));
+console.log('What is 7 + 5?', add(7, 5));
 
-// Rewrite the add function using arrow syntax in the space below. Try to write an implicit return! :) 
-
+// Rewrite the add function using arrow syntax in the space below. Try to write an implicit return! :)
 ```
-
 
 ### Functions as Values
 
@@ -175,9 +169,9 @@ functions and treat them like values stored in a variable.
 
 The impact of this is we can:
 
--   add functions to arrays and objects, just like any other value
--   pass functions as arguments to another function
--   return a function from a function
+- add functions to arrays and objects, just like any other value
+- pass functions as arguments to another function
+- return a function from a function
 
 **We'll try these in breakout rooms first, then come back and discuss! Try not to peek at the solutions! **
 
@@ -224,15 +218,15 @@ console.log(whatShouldISay(sayHello));
 <details>
 <summary>Example</summary>
 <code>
-function helloWorld() {
+function sayHello() {
   return 'Hello World';
 }
 
-function sayHello() {
-return helloWorld();
+function higherOrderFunction(callback) {
+return callBack();
 }
 
-console.log(sayHello());
+console.log(higherOrderFunction(sayHello));
 </code>
 
 </details>
@@ -254,21 +248,19 @@ that take a function as an argument and use it to transform an array of data.
 
 ![Higher order functions and callbacks](https://media.git.generalassemb.ly/user/21811/files/c79e8e00-6996-11eb-98dd-3768c8c02827)
 
-
 The purpose is to provide a level of abstraction (e.g., going through each element in an array and performing some operation for each element).
 
-In the next part of class, we'll learn about array methods that take OTHER FUNCTIONS, i.e., callback functions, as arguments! 
+In the next part of class, we'll learn about array methods that take OTHER FUNCTIONS, i.e., callback functions, as arguments!
 
 ## Two Ways of Passing Functions as Arguments
 
 ### Passing Named Functions
 
-Perhaps we will often need to print "Hello world" to the console. We can modularize that code into a function called sayHello: 
-
+Perhaps we will often need to print "Hello world" to the console. We can modularize that code into a function called sayHello:
 
 ```js
-function sayHello(){
-	console.log("Hello world 🪐")
+function sayHello() {
+	console.log('Hello world 🪐');
 }
 ```
 
@@ -276,50 +268,48 @@ A higher-order function that takes other functions and returns them can accept t
 
 ```js
 // a higher-order function that takes another function as a parameter
-function myHigherOrderFunction(callback){
-	return callback()
+function myHigherOrderFunction(callback) {
+	return callback();
 }
 
-
 // when passed the named sayHello function as an argument, it returns the callback function
-myHigherOrderFunction(sayHello) //prints "Hello world 🪐" to the console
-
+myHigherOrderFunction(sayHello); //prints "Hello world 🪐" to the console
 ```
 
-Notice that when we pass the `sayHello` function to the higher-order function, we are just referencing it, not invoking it. 
+Notice that when we pass the `sayHello` function to the higher-order function, we are just referencing it, not invoking it.
 
 ```js
 // don't do this!! 😱
-myHigherOrderFunction(sayHello())
+myHigherOrderFunction(sayHello());
 
 //do this 😌
-myHigherOrderFunction(sayHello)
+myHigherOrderFunction(sayHello);
 ```
 
-The higher-order function does the invoking itself -- we just need to tell it the name of the function to run. 
+The higher-order function does the invoking itself -- we just need to tell it the name of the function to run.
 
 ### Passing Anonymous Functions
 
-Callback functions can also be defined **anonymously** from WITHIN the higher-order function when it's called. 
+Callback functions can also be defined **anonymously** from WITHIN the higher-order function when it's called.
 
-Revisiting the higher-order function from the previous example, let's say we wanted the HOF to return "Hello galaxy" instead of "Hello world". We don't want to bother with writing an externally-defined named function because we won't need this functionality again elsewhere in our code. 
+Revisiting the higher-order function from the previous example, let's say we wanted the HOF to return "Hello galaxy" instead of "Hello world". We don't want to bother with writing an externally-defined named function because we won't need this functionality again elsewhere in our code.
 
 We could write an anonymous (unnamed) function inside of `myHigherOrderFunction` when we invoke it:
 
 ```js
-myHigherOrderFunction(function(){
-	console.log("Hello galaxy ✨")
-})
+myHigherOrderFunction(function () {
+	console.log('Hello galaxy ✨');
+});
 ```
 
 This looks even cleaner with ES6 arrow function syntax:
 
 ```js
-myHigherOrderFunction(() => console.log("Hello galaxy ✨"))
+myHigherOrderFunction(() => console.log('Hello galaxy ✨'));
 ```
 
 Notice again that we are not invoking the callback -- we are just referencing it for the higher-order function to run!
 
-### You Try: HOF Exercises
+### You Try: More Function Exercises
 
-Work on the HOF exercises linked [here](). 
+Work on the exercises linked [here](./lib/exercises.js) to get more comfortable working with functions.

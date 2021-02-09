@@ -53,6 +53,8 @@ const sum = (a, b) => a + b;
 
 #### Function Invocation (calling a function)
 
+When we invoke a function, we use clappers `()` along with any arguments to execute or run the function's code. 
+
 ```js
 sum(3, 4); // function "sum" called with arguments a and b
 // => 7
@@ -70,6 +72,18 @@ console.log('hello!');
 // 'hello!'
 // => undefined
 //// console.log() returns `undefined`, which appears below the console-logged message because the console.log() method is not given a RETURN VALUE
+```
+
+#### Function Reference (passing a function)
+
+Sometimes, we just need to reference the name of a function to execute, especially when passing a callback function to a higher-order function as we'll see later. In that instance, we don't need clappers as the higher-order function will run the function when it's called upon.
+
+```js
+function sayHello() {
+  console.log('hello world!')
+}
+
+btn.addEventListener('click', sayHello)
 ```
 
 #### How to Convert to Arrow Syntax
@@ -122,7 +136,7 @@ Arrow functions:
 
 - **cannot** be used as a Constructor (`new` does not bind `this`, no
   `prototype` property). This might not mean a lot now, but when we learn about Object-Oriented Programming, this will be handy to remember!
-- always have a lexically bound `this` (check out this [article](https://www.freecodecamp.org/news/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881/#:~:text=While%20in%20ES5%20'this'%20referred,method%20or%20the%20object%20itself.)).
+- always have a lexically bound `this` (check out this [article](https://www.freecodecamp.org/news/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881/#:~:text=While%20in%20ES5%20'this'%20referred,method%20or%20the%20object%20itself.) to learn more about what that means).
 - cannot use `arguments` key word ([learn more about `arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments))
 
 

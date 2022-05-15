@@ -162,7 +162,7 @@ console.log('What is 7 + 5?', add(7, 5));
 // Rewrite the add function using arrow syntax in the space below. Try to write an implicit return! :)
 ```
  -->
- 
+
 ### Functions as Values
 
 One of the things that makes JavaScript so powerful is that we can reference
@@ -311,44 +311,45 @@ Notice again that we are not invoking the callback -- we are just referencing it
 
 ### HOF Example
 
-The above examples are a bit contrived! Two great examples of a practical use case for higher-order functions are built right into JavaScript. 
+The above examples are a bit contrived! Two great examples of a practical use case for higher-order functions are built right into JavaScript.
 
 #### [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
 
 This is a very handy higher-order function that executes a callback after a given delay (in milliseconds).
 
 ```javascript
-function greetMe(){
-  console.log('hello world!');
+function greetMe() {
+	console.log('hello world!');
 }
 
 setTimeout(greetMe, 2000); // => invokes the greetMe function after a delay of 2 seconds
 ```
 
-Note that in the example above, we don't invoke the `greetMe` function ourselves, i.e., we don't write `setTimeout(greetMe(), 2000)`. The higher-order function, `setTimeout`, is responsible for invoking its callback function after the given delay. 
+Note that in the example above, we don't invoke the `greetMe` function ourselves, i.e., we don't write `setTimeout(greetMe(), 2000)`. The higher-order function, `setTimeout`, is responsible for invoking its callback function after the given delay.
 
-This could be re-written by passing in an anonymous (unnamed) callback function to the setTimeout: 
+This could be re-written by passing in an anonymous (unnamed) callback function to the setTimeout:
 
 ```js
-setTimeout(function (){
-  console.log('hello world!'); 
-}, 2000)
+setTimeout(function () {
+	console.log('hello world!');
+}, 2000);
 ```
 
-Note how we are simply defining the callback function inside of the higher-order function. It is unnamed and cannot be referenced in other code. 
-
+Note how we are simply defining the callback function inside of the higher-order function. It is unnamed and cannot be referenced in other code.
 
 #### [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
 
+`setInterval` is very similar to `setTimeout`, but instead of executing the callback function just once after a delay, `setInterval` executes the callback function once every x milliseconds. It's very useful when you need to create a countdown or timer in your application.
+
 ```javascript
-function greetFriend(){
-  console.log('hello friend');
+function greetFriend() {
+	console.log('hello friend');
 }
 
 setInterval(counter, 1000); // => invokes the greetFriend function once every second (forever!)
 ```
 
-> How would you rewrite the above code using an anonymous (instead of named) callback function? 
+> How would you rewrite the above code using an anonymous (instead of named) callback function?
 
 ### You Try: More Function Exercises
 

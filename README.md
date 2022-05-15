@@ -327,6 +327,17 @@ setTimeout(greetMe, 2000); // => invokes the greetMe function after a delay of 2
 
 Note that in the example above, we don't invoke the `greetMe` function ourselves, i.e., we don't write `setTimeout(greetMe(), 2000)`. The higher-order function, `setTimeout`, is responsible for invoking its callback function after the given delay. 
 
+This could be re-written by passing in an anonymous (unnamed) callback function to the setTimeout: 
+
+```js
+setTimeout(function (){
+  console.log('hello world!'); 
+}, 2000)
+```
+
+Note how we are simply defining the callback function inside of the higher-order function. It is unnamed and cannot be referenced in other code. 
+
+
 #### [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
 
 ```javascript
@@ -336,6 +347,8 @@ function greetFriend(){
 
 setInterval(counter, 1000); // => invokes the greetFriend function once every second (forever!)
 ```
+
+> How would you rewrite the above code using an anonymous (instead of named) callback function? 
 
 ### You Try: More Function Exercises
 

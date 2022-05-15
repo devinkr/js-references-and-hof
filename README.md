@@ -239,7 +239,7 @@ Taking functions as arguments and returning functions is a little advanced, so w
 ![morpheus](https://media.git.generalassemb.ly/user/21811/files/0896a280-6997-11eb-8a87-4d41c3783550)
 
 Functions that take other functions as arguments or return them as output are
-called **higher-order functions**. The array methods that we're going to learn
+called **higher-order functions**. The array methods that we're going to learn later
 today all fit this definition: they are functions (methods of the Array object)
 that take a function as an argument and use it to transform an array of data.
 
@@ -308,6 +308,34 @@ myHigherOrderFunction(() => console.log('Hello galaxy ✨'));
 ``` -->
 
 Notice again that we are not invoking the callback -- we are just referencing it for the higher-order function to run!
+
+### HOF Example
+
+The above examples are a bit contrived! Two great examples of a practical use case for higher-order functions are built right into JavaScript. 
+
+#### [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
+
+This is a very handy higher-order function that executes a callback after a given delay (in milliseconds).
+
+```javascript
+function greetMe(){
+  console.log('hello world!');
+}
+
+setTimeout(greetMe, 2000); // => invokes the greetMe function after a delay of 2 seconds
+```
+
+Note that in the example above, we don't invoke the `greetMe` function ourselves, i.e., we don't write `setTimeout(greetMe(), 2000)`. The higher-order function, `setTimeout`, is responsible for invoking its callback function after the given delay. 
+
+#### [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
+
+```javascript
+function greetFriend(){
+  console.log('hello friend');
+}
+
+setInterval(counter, 1000); // => invokes the greetFriend function once every second (forever!)
+```
 
 ### You Try: More Function Exercises
 

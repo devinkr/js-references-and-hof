@@ -5,7 +5,6 @@
 ## Learning Objectives
 
 - Review functions in JavaScript
-- Convert function declarations to arrow functions
 - Define higher-order functions
 - Practice working with functions and reference types
 
@@ -45,6 +44,7 @@ var sum = function (a, b) {
 };
 
 // ES6 Style, with Arrow Functions
+// We won't write functions in class in this style just yet, but good to know it exists!
 const sum = (a, b) => a + b;
 ```
 
@@ -83,7 +83,7 @@ function sayHello() {
 btn.addEventListener('click', sayHello);
 ```
 
-#### How to Convert to Arrow Syntax
+<!-- #### How to Convert to Arrow Syntax
 
 We can convert an existing JavaScript function to use the arrow syntax with the
 following steps.
@@ -161,7 +161,8 @@ console.log('What is 7 + 5?', add(7, 5));
 
 // Rewrite the add function using arrow syntax in the space below. Try to write an implicit return! :)
 ```
-
+ -->
+ 
 ### Functions as Values
 
 One of the things that makes JavaScript so powerful is that we can reference

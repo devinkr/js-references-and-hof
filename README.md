@@ -174,8 +174,6 @@ The impact of this is we can:
 - pass functions as arguments to another function
 - return a function from a function
 
-**We'll try these in breakout rooms first, then come back and discuss! Try not to peek at the solutions! **
-
 > 1. Create an array and add a function to it in the first index. How do you
 >    invoke it?
 
@@ -303,11 +301,11 @@ myHigherOrderFunction(function () {
 });
 ```
 
-This looks even cleaner with ES6 arrow function syntax:
+<!-- This looks even cleaner with ES6 arrow function syntax:
 
 ```js
 myHigherOrderFunction(() => console.log('Hello galaxy ✨'));
-```
+``` -->
 
 Notice again that we are not invoking the callback -- we are just referencing it for the higher-order function to run!
 

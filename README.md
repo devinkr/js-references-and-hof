@@ -71,7 +71,7 @@ console.log('hello!');
 //// console.log() returns `undefined`, which appears below the console-logged message because the console.log() method is not given a RETURN VALUE
 ```
 
-#### Function Reference (passing a function)
+#### Function Reference (passing a function as an argument)
 
 Sometimes, we just need to reference the name of a function to execute, especially when passing a callback function to a higher-order function as we'll see later. In that instance, we don't need clappers as the higher-order function will run the function when it's called upon.
 
@@ -166,7 +166,7 @@ console.log('What is 7 + 5?', add(7, 5));
 ### Functions as Values
 
 One of the things that makes JavaScript so powerful is that we can reference
-functions and treat them like values stored in a variable.
+functions and treat them like values stored in a variable. You might hear this behavior referred to as [first-class functions](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function), and it's a feature shared among other scripting languages like Python and PHP as well.
 
 The impact of this is we can:
 
@@ -232,7 +232,7 @@ console.log(higherOrderFunction(sayHello));
 
 <br> -->
 
-Taking functions as arguments and returning functions is a little advanced, so we're just going to touch on it today. But the significance is: a function that takes a function as an argument is called a _higher-order function._ The function that it takes is called a _callback function_.
+A function that takes a function as an argument is called a _higher-order function._ The function that it takes as an argument is called a _callback function_.
 
 ## Higher-Order Functions
 
@@ -275,7 +275,7 @@ function myHigherOrderFunction(callback) {
 myHigherOrderFunction(sayHello); //prints "Hello world 🪐" to the console
 ```
 
-Notice that when we pass the `sayHello` function to the higher-order function, we are just referencing it, not invoking it.
+Notice that when we pass the `sayHello` function to the higher-order function, we are just _referencing_ it, not invoking it.
 
 ```js
 // don't do this!! 😱
@@ -311,7 +311,7 @@ Notice again that we are not invoking the callback -- we are just referencing it
 
 ### HOF Example
 
-The above examples are a bit contrived! Two great examples of a practical use case for higher-order functions are built right into JavaScript.
+The above examples are a bit contrived and abstract! Two great examples of a practical use case for higher-order functions are built right into JavaScript.
 
 #### [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
 

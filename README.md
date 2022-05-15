@@ -173,7 +173,7 @@ The impact of this is we can:
 - add functions to arrays and objects, just like any other value
 - pass functions as arguments to another function
 - return a function from a function
-
+<!-- 
 > 1. Create an array and add a function to it in the first index. How do you
 >    invoke it?
 
@@ -230,7 +230,7 @@ console.log(higherOrderFunction(sayHello));
 
 </details>
 
-<br>
+<br> -->
 
 Taking functions as arguments and returning functions is a little advanced, so we're just going to touch on it today. But the significance is: a function that takes a function as an argument is called a _higher-order function._ The function that it takes is called a _callback function_.
 

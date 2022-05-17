@@ -346,7 +346,7 @@ function greetFriend() {
 	console.log('hello friend');
 }
 
-setInterval(counter, 1000); // => invokes the greetFriend function once every second (forever!)
+setInterval(greetFriend, 1000); // => invokes the greetFriend function once every second (forever!)
 ```
 
 > How would you rewrite the above code using an anonymous (instead of named) callback function?
